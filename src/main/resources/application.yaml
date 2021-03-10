@@ -1,0 +1,17 @@
+spring:
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  data:
+    mongodb:
+      repositories:
+        enabled: true
+      uri: mongodb://root:example@localhost:27017/stuff?authSource=admin
+
+server:
+  servlet:
+    context-path: /api/v1
+
+#springdoc:
+#  swagger-ui:
+#    path: /swagger-ui-custom.html
+
