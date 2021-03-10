@@ -64,7 +64,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
+<!--Test-->
 	<build>
 		<plugins>
 			<plugin>
