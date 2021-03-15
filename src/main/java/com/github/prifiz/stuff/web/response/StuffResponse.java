@@ -9,6 +9,7 @@ import lombok.*;
 @Setter
 public class StuffResponse {
 
+    private Long id;
     private String name;
     private String manufacturer;
     private String model;

@@ -1,9 +1,8 @@
 package com.github.prifiz.stuff.web.controller;
 
-import com.github.prifiz.stuff.web.request.ExtendedStuffCreationRequest;
-import com.github.prifiz.stuff.web.request.MinimalStuffCreationRequest;
-import com.github.prifiz.stuff.web.request.StuffPartialUpdateRequest;
-import com.github.prifiz.stuff.web.request.StuffUpdateOrCreateRequest;
+import com.github.prifiz.stuff.service.StuffNotFoundException;
+import com.github.prifiz.stuff.web.request.*;
+import com.github.prifiz.stuff.web.response.StuffResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -46,5 +45,10 @@ public interface StuffController {
 
     @GetMapping(path = "/{id}")
     @ResponseBody
-    ResponseEntity<?> getStuff(@PathVariable long id);
+    ResponseEntity<?> getStuffById(@PathVariable long id);
+
+    @GetMapping(path = "/{name}/{manufacturer}/{model}")
+    @ResponseBody
+    StuffResponse getStuff(@PathVariable("name") String name, @PathVariable String manufacturer, @PathVariable String model)
+            throws StuffNotFoundException;
 }

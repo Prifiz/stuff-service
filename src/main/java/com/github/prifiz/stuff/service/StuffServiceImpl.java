@@ -47,7 +47,21 @@ public class StuffServiceImpl implements StuffService {
         if (stuff.isPresent()) {
             return stuff.get();
         } else {
-            throw new StuffNotFoundException(String.format("Stuff with id {} not found", id));
+            throw new StuffNotFoundException(String.format("Stuff with id '%s' not found", id));
+        }
+    }
+
+    @Override
+    public Stuff findStuff(String name, String manufacturer, String model) throws StuffNotFoundException {
+        Optional<Stuff> result = stuffRepository.findByNameAndManufacturerAndModel(
+                name, manufacturer, model);
+        if (result.isPresent()) {
+            return result.get();
+        } else {
+            throw new StuffNotFoundException(
+                    String.format(
+                            "Stuff with the requested fields not found: [Name: '%s'. Manufacturer: '%s', Model: '%s']",
+                            name, manufacturer, model));
         }
     }
 
