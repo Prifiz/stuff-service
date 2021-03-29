@@ -4,13 +4,14 @@ import com.github.prifiz.stuff.model.Stuff;
 import com.github.prifiz.stuff.service.StuffNotFoundException;
 import com.github.prifiz.stuff.service.StuffService;
 import com.github.prifiz.stuff.web.converter.*;
-import com.github.prifiz.stuff.web.request.*;
+import com.github.prifiz.stuff.web.request.ExtendedStuffCreationRequest;
+import com.github.prifiz.stuff.web.request.MinimalStuffCreationRequest;
+import com.github.prifiz.stuff.web.request.StuffPartialUpdateRequest;
+import com.github.prifiz.stuff.web.request.StuffUpdateOrCreateRequest;
 import com.github.prifiz.stuff.web.response.StuffResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Objects;
