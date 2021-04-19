@@ -1,7 +1,8 @@
 package com.github.prifiz.stuff.service;
 
 import com.github.prifiz.stuff.model.Stuff;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Collection;
 
 public interface StuffService {
 
@@ -16,4 +17,6 @@ public interface StuffService {
     Stuff find(long id) throws StuffNotFoundException;
 
     Stuff findStuff(String name, String manufacturer, String model) throws StuffNotFoundException;
+
+    Collection<Stuff> findAll();
 }

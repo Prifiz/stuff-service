@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Optional;
 
@@ -63,6 +64,11 @@ public class StuffServiceImpl implements StuffService {
                             "Stuff with the requested fields not found: [Name: '%s'. Manufacturer: '%s', Model: '%s']",
                             name, manufacturer, model));
         }
+    }
+
+    @Override
+    public Collection<Stuff> findAll() {
+        return stuffRepository.findAll();
     }
 
     @Override

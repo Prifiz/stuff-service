@@ -14,7 +14,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @RestController
@@ -79,6 +81,11 @@ public class StuffControllerImpl implements StuffController {
             throws StuffNotFoundException {
         Stuff stuff = stuffService.findStuff(name, manufacturer, model);
         return stuffToStuffResponseConverter.convert(stuff);
+    }
+
+    @Override
+    public Collection<StuffResponse> getAllStuff() {
+        return stuffService.findAll().stream().map(stuffToStuffResponseConverter::convert).collect(Collectors.toList());
     }
 
     // TODO
